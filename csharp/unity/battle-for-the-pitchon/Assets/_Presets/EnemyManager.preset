@@ -1,0 +1,1352 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EnemyManager
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: bcf786cc352a41c449aa89a28bd2ce71,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].groupRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.size
+    value: 11
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[0].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[0].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[0].pathIntermediates.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[0].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[1].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[1].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[1].pathIntermediates.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[1].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[2].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[2].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[2].pathIntermediates.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[2].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[3].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[3].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[3].pathIntermediates.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[3].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[4].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[4].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[4].pathIntermediates.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[4].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[5].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[5].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[5].pathIntermediates.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[5].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[6].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[6].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[6].pathIntermediates.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[6].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[7].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[7].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[7].pathIntermediates.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[7].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[8].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[8].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[8].pathIntermediates.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[8].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[9].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[9].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[9].pathIntermediates.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[9].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[10].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[10].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[10].pathIntermediates.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[0].paths.Array.data[10].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].groupRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.size
+    value: 11
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.size
+    value: 21
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[1]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[2]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[3]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[4]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[5]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[6]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[7]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[8]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[9]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[10]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[11]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[12]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[13]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[14]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[15]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[16]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[17]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[18]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[19]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathIntermediates.Array.data[20]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[0].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.size
+    value: 21
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[1]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[2]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[3]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[4]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[5]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[6]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[7]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[8]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[9]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[10]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[11]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[12]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[13]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[14]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[15]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[16]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[17]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[18]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[19]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathIntermediates.Array.data[20]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[1].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.size
+    value: 21
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[1]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[2]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[3]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[4]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[5]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[6]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[7]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[8]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[9]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[10]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[11]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[12]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[13]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[14]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[15]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[16]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[17]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[18]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[19]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathIntermediates.Array.data[20]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[2].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.size
+    value: 21
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[1]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[2]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[3]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[4]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[5]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[6]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[7]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[8]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[9]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[10]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[11]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[12]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[13]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[14]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[15]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[16]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[17]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[18]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[19]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathIntermediates.Array.data[20]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[3].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.size
+    value: 21
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[1]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[2]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[3]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[4]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[5]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[6]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[7]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[8]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[9]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[10]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[11]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[12]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[13]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[14]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[15]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[16]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[17]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[18]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[19]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathIntermediates.Array.data[20]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[4].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.size
+    value: 21
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[1]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[2]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[3]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[4]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[5]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[6]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[7]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[8]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[9]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[10]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[11]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[12]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[13]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[14]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[15]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[16]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[17]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[18]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[19]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathIntermediates.Array.data[20]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[5].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.size
+    value: 21
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[1]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[2]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[3]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[4]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[5]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[6]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[7]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[8]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[9]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[10]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[11]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[12]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[13]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[14]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[15]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[16]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[17]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[18]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[19]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathIntermediates.Array.data[20]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[6].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.size
+    value: 21
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[1]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[2]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[3]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[4]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[5]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[6]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[7]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[8]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[9]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[10]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[11]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[12]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[13]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[14]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[15]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[16]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[17]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[18]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[19]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathIntermediates.Array.data[20]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[7].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.size
+    value: 21
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[1]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[2]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[3]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[4]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[5]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[6]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[7]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[8]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[9]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[10]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[11]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[12]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[13]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[14]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[15]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[16]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[17]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[18]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[19]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathIntermediates.Array.data[20]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[8].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.size
+    value: 21
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[1]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[2]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[3]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[4]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[5]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[6]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[7]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[8]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[9]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[10]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[11]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[12]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[13]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[14]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[15]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[16]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[17]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[18]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[19]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathIntermediates.Array.data[20]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[9].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathRoot
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathStart
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.size
+    value: 21
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[1]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[2]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[3]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[4]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[5]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[6]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[7]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[8]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[9]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[10]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[11]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[12]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[13]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[14]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[15]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[16]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[17]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[18]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[19]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathIntermediates.Array.data[20]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroups.Array.data[1].paths.Array.data[10].pathEnd
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: enemyPrefabs.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: enemyPrefabs.Array.data[0]
+    value: 
+    objectReference: {fileID: 4609320752996021073, guid: 1ccb077c883fd8a428698b5e20cc4fb0,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: pathStep
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: enemyPrefabIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pathGroupIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: spawneeSpeed
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: spawneeReachThreshold
+    value: 1
+    objectReference: {fileID: 0}

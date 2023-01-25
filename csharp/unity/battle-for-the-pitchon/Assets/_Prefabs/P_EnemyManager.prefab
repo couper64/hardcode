@@ -1,0 +1,376 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6399106723925296572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6399106723925296562}
+  - component: {fileID: 6399106723925296573}
+  m_Layer: 0
+  m_Name: EnemyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6399106723925296562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6399106723925296572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6399106723925296573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6399106723925296572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf786cc352a41c449aa89a28bd2ce71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathGroups:
+  - groupRoot: {fileID: 0}
+    paths:
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates: []
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates: []
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates: []
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates: []
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates: []
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates: []
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates: []
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates: []
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates: []
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates: []
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates: []
+      pathEnd: {fileID: 0}
+  - groupRoot: {fileID: 0}
+    paths:
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      pathEnd: {fileID: 0}
+    - pathRoot: {fileID: 0}
+      pathStart: {fileID: 0}
+      pathIntermediates:
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      - {fileID: 0}
+      pathEnd: {fileID: 0}
+  enemyPrefabs:
+  - {fileID: 4609320752996021073, guid: 1ccb077c883fd8a428698b5e20cc4fb0, type: 3}
+  pathStep: 2
+  enemyPrefabIndex: 0
+  pathGroupIndex: 0
+  spawneeSpeed: 3
+  spawneeReachThreshold: 1
