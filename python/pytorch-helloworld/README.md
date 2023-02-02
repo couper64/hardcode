@@ -20,17 +20,17 @@ Optionally, the __cuda__ command could be replaced with the following:
 If the __cuda__ command is replaced, then it will be missing __cuda__, __cuda-demo-suite__, and __cuda-runtime__ packages.
 
 PyTorch Tutorials:
-* Working with data
   * [Intro](https://pytorch.org/tutorials/beginner/basics/intro.html) - a page with an overview.
   * [Quickstart](https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html) - an overview of the API for common tasks.
-  * Introduces to DataLoader and Dataset.
-  * Introduces to TorchText, TorchVision, and TorchAudio which are domain specific datasets.
-      * Every TorchVision Dataset includes two arguments: __transform__ and __target_transform__.
-  * Dataset -> DataLoader, the idea is to pass Dataset to DataLoader.
-* Create Models
-  * We define the layers of the network in the __init__ function.
-  * Specify how data will pass through the network in the forward function.
-  * To accelerate operations in the neural network, we move it to the GPU if available.
+    * Working with data
+      * Introduces to DataLoader and Dataset.
+      * Introduces to TorchText, TorchVision, and TorchAudio which are domain specific datasets.
+          * Every TorchVision Dataset includes two arguments: __transform__ and __target_transform__.
+      * Dataset -> DataLoader, the idea is to pass Dataset to DataLoader.
+    * Create Models
+      * We define the layers of the network in the __init__ function.
+      * Specify how data will pass through the network in the forward function.
+      * To accelerate operations in the neural network, we move it to the GPU if available.
 
 ```
 # Get cpu or gpu device for training.
@@ -59,14 +59,17 @@ model = NeuralNetwork().to(device)
 print(model)
 ```
 
-* Optimizing the Model Parameters
-  * Need a __loss function__ and __optimiser__.
+  * [Quickstart](https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html) - continue...
+    * Optimizing the Model Parameters
+      * Need a __loss function__ and __optimiser__.
 
 ```
 loss_fn = nn.CrossEntropyLoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=1e-3)
 ```
-  * Train the model. In a single training loop, the model makes predictions on the training dataset (fed to it in batches), and backpropagates the prediction error to adjust the model’s parameters.
+
+  * [Quickstart](https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html) - continue...
+    * Train the model. In a single training loop, the model makes predictions on the training dataset (fed to it in batches), and backpropagates the prediction error to adjust the model’s parameters.
 
 ```
 def train(dataloader, model, loss_fn, optimizer):
@@ -89,7 +92,8 @@ def train(dataloader, model, loss_fn, optimizer):
             print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
 ```
 
-  * Test the model. We also check the model’s performance against the test dataset to ensure it is learning.
+  * [Quickstart](https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html) - continue...
+    * Test the model. We also check the model’s performance against the test dataset to ensure it is learning.
 
 ```
 def test(dataloader, model, loss_fn):
@@ -108,16 +112,18 @@ def test(dataloader, model, loss_fn):
     print(f"Test Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
 ```
 
-* Saving Models
-  * A common way to save a model is to serialize the internal state dictionary (containing the model parameters).
+  * [Quickstart](https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html) - continue...
+    * Saving Models
+      * A common way to save a model is to serialize the internal state dictionary (containing the model parameters).
 
 ```
 torch.save(model.state_dict(), "model.pth")
 print("Saved PyTorch Model State to model.pth")
 ```
 
-* Loading Models
-  * The process for loading a model includes re-creating the model structure and loading the state dictionary into it.
+  * [Quickstart](https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html) - continue...
+    * Loading Models
+      * The process for loading a model includes re-creating the model structure and loading the state dictionary into it.
 
 ```
 model = NeuralNetwork()
