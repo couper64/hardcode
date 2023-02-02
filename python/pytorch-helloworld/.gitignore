@@ -1,0 +1,7 @@
+# The script, presumably, downloads a lot of binary data from the internet.
+# We want to avoid uploading it to the cloud.
+data/
+
+# The script, additionally, generates a state_dict from PyTorch.
+# It takes a lot of space, so we want to avoid it as well.
+*.pth
