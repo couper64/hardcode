@@ -1,0 +1,11 @@
+DND_LINEAGES : list = [
+    "Dragonborn",
+    "Dwarf"     ,
+    "Elf"       ,
+    "Gnome"     ,
+    "Half-Elf"  ,
+    "Half-Orc"  ,
+    "Halfling"  ,
+    "Human"     ,
+    "Tiefling"  ,
+]
