@@ -1,0 +1,82 @@
+{
+    "info"        :
+    {
+        "year"        : 2023              ,
+        "version"     : "1.0"             ,
+        "description" : "COCO dataset"    ,
+        "contributor" : "COCO"            ,
+        "url"         : "https://coco.org",
+        "date_created": "2023/03/01"
+    },
+    "licenses"    :
+    [
+        {
+            "id"  : 1,
+            "name": "COCO License",
+            "url" : "https://coco.org/license"
+        },
+        {
+            "id"  : 2,
+            "name": "KU License",
+            "url" : "https://kingston.ac.uk/license"
+        }
+    ],
+    "categories"  :
+    [
+        {"id": 1, "name": "mig29", "supercategory": "jet" },
+        {"id": 2, "name": "huey" , "supercategory": "heli"},
+        {"id": 3, "name": "vw"   , "supercategory": "car" }
+    ],
+    "images"      :
+    [
+        {
+            "id"           : 0,
+            "width"        : 800,
+            "height"       : 600,
+            "file_name"    : "image0.png",
+            "license"      : 1,
+            "flickr_url"   : "",
+            "coco_url"     : "",
+            "date_captured": "2023-03-01 11:45:41"
+        },
+        {
+            "id"           : 1,
+            "width"        : 800,
+            "height"       : 600,
+            "file_name"    : "image1.png",
+            "license"      : 2,
+            "flickr_url"   : "",
+            "coco_url"     : "",
+            "date_captured": "2023-03-01 11:49:33"
+        }
+    ],
+    "annotations" :
+    [
+        {
+            "id"          : 0,
+            "image_id"    : 0,
+            "category_id" : 1,
+            "segmentation":
+            {
+                "counts": [12, 56, 198, 10],
+                "size"  : [120, 240]
+            },
+            "area"        : 499.3,
+            "bbox"        : [433.05, 340.76, 138.65, 228.67],
+            "iscrowd"     : 1
+        },
+        {
+            "id"          : 1,
+            "image_id"    : 1,
+            "category_id" : 3,
+            "segmentation":
+            {
+                "counts": [65, 11, 299, 7],
+                "size"  : [999, 99]
+            },
+            "area"        : 199.3,
+            "bbox"        : [432.05, 765.76, 99.65, 432.67],
+            "iscrowd"     : 0
+        }
+    ]
+}
