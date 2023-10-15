@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efd0de960faa2940b2bf850995b3874, type: 3}
+  m_Name: Snowdancer
+  m_EditorClassIdentifier: 
+  characterName: Snowdancer
+  perks:
+  - Replace one "-1" card with one "Shield 1" flip card
+  - Replace one "-1" card with one "Shield 1" flip card
+  - Replace one "-1" card with one "Shield 1" flip card
+  - Replace one "+0" card with one "+1" "Add +1 attack for each ally adjacent to
+    the target" card" card
+  - Replace one "+0" card with one "+1" "Add +1 attack for each ally adjacent to
+    the target" card" card
+  - Add one "+1" disarm card
+  - Add one "+1" disarm card
+  - Add one "+2" push card
+  - Add one "+2" push card
+  - Add two "+1" flip push cards
+  - Add two "+1" flip push cards
+  - Add two "Heal 1, self" flip push cards
+  - Add two "Heal 1, self" flip push cards
+  - Ignore item "-1" effects and remove one "-1" card
+  - At the end of each of your long rests, grant one ally within "range 3" "movement
+    2"
+  - Whenever you open a door with a move ability, add "+3 movement"
+  - Once each scenario, during your turn, gain "Shield 2" for the round
