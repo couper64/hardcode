@@ -34,3 +34,8 @@ The other approach is to install Python 3.10 PyInstaller support files from thei
 ```
 pip install https://github.com/rokm/pyinstaller/archive/refs/heads/python-3.10.zip
 ```
+
+Another option is related to Tkinter, the following arguments help the program to include the Pillow (PIL).
+```
+--hidden-import="PIL" --hidden-import="PIL._imagingtk" --hidden-import="PIL._tkinter_finder"
+```
