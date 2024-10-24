@@ -56,6 +56,7 @@ Artificial intelligence (AI) is a branch of computer science focused on creating
 An operating system (OS) is a fundamental software layer that manages computer hardware and software resources, providing a user interface and acting as a bridge between the user and the computer's hardware. It controls basic functions such as file management, memory allocation, task scheduling, and device management, allowing different programs and applications to run efficiently. Key components of an OS include the kernel, which handles core operations, and utilities that provide a user-friendly environment. Operating systems are essential for running devices such as computers, smartphones, and servers, with examples including Windows, macOS, Linux, and Android.
 
 ### Section 1.1 Microsoft Operating Systems
+
 Microsoft Windows is a product line of proprietary graphical operating systems developed and marketed by Microsoft. It is grouped into families and sub-families that cater to particular sectors of the computing industry – Windows (unqualified) for a consumer or corporate workstation, Windows Server for a server and Windows IoT for an embedded system. Defunct families include Windows 9x, Windows Mobile, Windows Phone, and Windows Embedded Compact.
 
 ---
