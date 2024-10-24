@@ -42,7 +42,7 @@ Games development is the process of designing, creating, and programming interac
 ### Artificial Intelligence
 
 <p align="center">
-  <img src="https://miro.medium.com/v2/resize:fit:960/1*oJwImXIdksNBJ1ocRPNurg.gif" />
+  <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTE4dDZ4OThhdWxseHJ5aHByNnFjcXdvaWhpaHlhNXl4NjJrb3VvZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT9C25UNTwfZuk85WP/giphy.webp" />
 </p>
 
 Artificial intelligence (AI) is a branch of computer science focused on creating systems and machines that can simulate human intelligence. It involves the development of algorithms and models that allow computers to perform tasks such as learning from data, recognizing patterns, making decisions, solving problems, and understanding natural language. AI encompasses various subfields, including machine learning, neural networks, robotics, and natural language processing. Its applications span industries like healthcare, finance, transportation, and entertainment, enabling innovations such as autonomous vehicles, recommendation systems, and intelligent virtual assistants.
