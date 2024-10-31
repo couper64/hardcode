@@ -14,6 +14,7 @@
 * [Section 1.1. Microsoft Operating Systems](#section-11-microsoft-operating-systems)
 * [Section 1.2. Linux Operating Systems](#section-12-linux-operating-systems)
 * [Section 1.3. Apple Operating Systems](#section-13-apple-operating-systems)
+* [Section 2. Software](#section-2-software)
 
 ## Introduction
 
@@ -192,3 +193,138 @@ Arch Linux (/ɑːrtʃ/) is an independently developed x86-64 general-purpose Lin
 
 ### Section 1.3 Apple Operating Systems
 TBD
+
+## Section 2. Software
+
+### Section 2.1 Remote Desktop
+Remotely accessing desktops is a simple concept, but very cumbursome on practice. There are a lot of paid solutions such as AnyDesk, TeamViewer, ZeroTier, etc. However, ideally, we want a self-hosted solution, so that we could run it indefinitely without heavy reliance on third party developers. There we could consider open source solutions like RustDesk & RustDesk Server software, xrdp, freerdp, etc. Futhermore, we can consider software such as Guacamole. Unfortunately, all of the software has thair strong and not so strong sides. In fact, practically, I find Google Chrome Remote Desktop to be the easiest software to deal with, although, personally, I am not a big fun of it. Historically, Google Chrome Remote Desktop was the easiest to install, and when I came to my work, everyone would understand it. For example, I could say: "Oh, just use Chrome Remote Desktop", and my colleagues would get it without any further explanation. Convenient, isn't it.
+
+Anyhow, it is time to step forward, we are acquiring new equipment, and I am going to setup a complex system with ability to give remote access to our equipment on demand whenever and wherever I am situated. For this, I have continued my experiments with various remote-desktop-software, and, here, I will document some of my findings. Starting from RustDesk. First of all, I found that for self-hosting, we need to use a pair of programs, RustDesk as a client, and RustDesk Server as a server applications. I set the server application on an AWS EC2 instance, what was relatively easy. And, following guidelines I found on the internet, I shared the ID, Relay Server, and Key with the client app. It all seemed to be working on the first day, but, on the second day, it would fail to connect to the server on my Windows machine, but wouldn't fail on my Linux machine. Also, I had to use xrdp instead of built-in gnome remote desktop on Ubuntu 24.04 because it wouldn't work the way I want it to causing me black screens.
+
+Eventually, I stumbled upon Guacamole, following guidelines on the internet, I installed it natively on the Ubuntu 24.04. Notably, Ubuntu 24.04 doesn't provide Tomcat 9 because they moved forward to Tomcat 10. However, Guacamole doesn't like Tomcat 10, but it has not problems with Tomcat 9. To solve this problem, I had to download files directly from the Tomcat website. Luckily, installation was straight forward. The reason I didn't go with the version 10 was because Guacamole didn't support that version at that time. Not sure how it is like now. Furtermore, marrying Guacamole version 1.5.5 with gnome remote desktop was impossible. Apparently, there is a bug related with that version of Guacamole. Again, to solve this problem, I had to clone the official mirror repository of Guacamole on GitHub. After this, it seemed to be working, fingers crossed...
+
+To install Guacamole server-side service:
+
+    git clone https://github.com/apache/guacamole-server
+    cd guacamole-server
+    autoreconf -fi
+    sudo ./configure --with-init-dir=/etc/init.d --enable-allow-freerdp-snapshots
+    sudo make
+    sudo make install
+
+After installation of the service, I continued to configuring the service.
+
+    sudo ldconfig
+    sudo systemctl daemon-reload
+    sudo systemctl start guacd
+    sudo systemctl enable guacd
+
+As a rule of thumb, I also checked the status of the service.
+
+    sudo systemctl status guacd
+
+This I just followed the guide as I had no problems with creating folders at this stage either.
+
+    sudo mkdir -p /etc/guacamole/{extensions,lib}
+
+From now on, I focused on Tomcat 9.
+
+    sudo apt install openjdk-17-jdk
+    sudo useradd -m -U -d /opt/tomcat -s /bin/false tomcat
+    sudo wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz -P /tmp
+    sudo tar -xvf /tmp/apache-tomcat-10.1.24.tar.gz -C /opt/tomcat
+    sudo chown -R tomcat:tomcat /opt/tomcat
+
+Tomcat is installed, we proceed to configure it.
+
+    cd /etc/systemd/system
+    sudo nvim tomcat.service
+
+Once I created the file, I paste in the following configuration.
+
+    [Unit]
+    Description=Tomcat Server
+    After=network.target
+
+    [Service]
+    Type=forking
+    User=tomcat
+    Group=tomcat
+    Environment="JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64"
+    WorkingDirectory=/opt/tomcat/apache-tomcat-9.0.96
+    ExecStart=/opt/tomcat/apache-tomcat-9.0.96/bin/startup.sh
+
+    [Install]
+    WantedBy=multi-user.target
+
+Restarting services to let it pick up the changes won't hurt at this stage.
+
+    sudo systemctl daemon-reload
+    sudo systemctl start tomcat
+    sudo systemctl enable tomcat
+
+At this point, if I access the service at port 8080, it should render a page saying all is working. Now, I can focus my attention on Guacamole Web App client.
+
+    sudo wget https://downloads.apache.org/guacamole/1.5.5/binary/guacamole-1.5.5.war
+    sudo mv guacamole-1.5.5.war /opt/tomcat/apache-tomcat-9.0.96/webapps/guacamole.war
+    sudo systemctl restart tomcat guacd
+
+This is a ***"production-ready"*** approach, so we use a database for user authentication instead of a simple XML-file as was documented in the official manual.
+
+    sudo apt install mariadb-server -y
+    sudo mysql_secure_installation
+
+As a note, I didn't use unix_sockets, but a regular password. The rest I left at default arguments. Next, the guide was suggesting to download an older version of a MySQL/J connector (v8.0.26), but I felt brave, and download the latest version 9.1.0. The download procedure was different for me for some reason. I had to manually download file from the website.
+
+    sudo apt install ./mysql-connector-j_9.1.0-1ubuntu24.04_all.deb
+    sudo cp /usr/share/java/mysql-connector-j-9.1.0.jar /etc/guacamole/lib/
+
+Next, I focused on the Apache Guacamole JDBC AUTH plugin.
+
+    sudo wget https://downloads.apache.org/guacamole/1.5.5/binary/guacamole-auth-jdbc-1.5.5.tar.gz
+    sudo tar -xf guacamole-auth-jdbc-1.5.5.tar.gz
+    sudo mv guacamole-auth-jdbc-1.5.5/mysql/guacamole-auth-jdbc-mysql-1.5.5.jar /etc/guacamole/extensions/
+
+Now, it is time to configure our database.
+
+    sudo mysql -u root -p
+
+These are the commands inside MariaDB.
+
+    MariaDB [(none)]> CREATE DATABASE guac_db;
+    MariaDB [(none)]> CREATE USER 'guac_user'@'localhost' IDENTIFIED BY 'password';
+    MariaDB [(none)]> GRANT SELECT,INSERT,UPDATE,DELETE ON guac_db.* TO 'guac_user'@'localhost';
+    MariaDB [(none)]> FLUSH PRIVILEGES;
+    MariaDB [(none)]> EXIT;
+
+After, we want to apply a schema.
+
+    cd guacamole-auth-jdbc-1.5.5/mysql/schema
+    cat *.sql | mysql -u root -p guac_db
+
+Next, we should tell Guacamole how it should handle user data. We create a simple properties file.
+
+    sudo nvim /etc/guacamole/guacamole.properties
+
+And, populate it with the configuration below.
+
+    # MySQL properties
+    mysql-hostname: 127.0.0.1
+    mysql-port: 3306
+    mysql-database: guac_db
+    mysql-username: guac_user
+    mysql-password: password
+
+Restart all relevant services.
+
+    sudo systemctl restart tomcat guacd mysql
+
+Now, the service should be accessible at port `8080/guacamole`, and default login and password should be `guacadmin`. At this point, it is strongly recommended to create a new admin user and password and delete the default credentials. To do this, from the **guacadmin profile** click on **Settings**. Under the **Edit User** section, enter your new username and password. Then, under the **Permissions** section check the all boxes. When you are done, click **Save**. Now log out from the default user and log in back to Apache Guacamole with your new user created. Then, navigate to the settings, and users tab, and **delete the guacadmin user**. That’s it, you are done. From there, you can securely access your servers and computers.
+
+#### References:
+
+* [Guide to install Guacamole server program](https://medium.com/@anshumaansingh10jan/unlocking-remote-access-a-comprehensive-guide-to-installing-and-configuring-apache-guacamole-on-30a4fd227fcd)
+* [Guide to install Tomcat 9 on Ubuntu 24.04](https://www.fosstechnix.com/how-to-install-tomcat-on-ubuntu-24-04-lts/)
+* [Here I found how to build Guacamole from GitHub repository](https://discourse.gnome.org/t/gnome-remote-desktop-rdp-problem-with-apache-guacamole/20703/4)
+* [This is the mirror repository of Apache Guacamole on GitHub](https://github.com/apache/guacamole-server)
+* [The website where I download MySQL/J connector](https://dev.mysql.com/downloads/connector/j/)
