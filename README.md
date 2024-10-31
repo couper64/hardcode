@@ -201,6 +201,10 @@ Remotely accessing desktops is a simple concept, but very cumbursome on practice
 
 Anyhow, it is time to step forward, we are acquiring new equipment, and I am going to setup a complex system with ability to give remote access to our equipment on demand whenever and wherever I am situated. For this, I have continued my experiments with various remote-desktop-software, and, here, I will document some of my findings. Starting from RustDesk. First of all, I found that for self-hosting, we need to use a pair of programs, RustDesk as a client, and RustDesk Server as a server applications. I set the server application on an AWS EC2 instance, what was relatively easy. And, following guidelines I found on the internet, I shared the ID, Relay Server, and Key with the client app. It all seemed to be working on the first day, but, on the second day, it would fail to connect to the server on my Windows machine, but wouldn't fail on my Linux machine. Also, I had to use xrdp instead of built-in gnome remote desktop on Ubuntu 24.04 because it wouldn't work the way I want it to causing me black screens.
 
+<p align="center">
+  <img src="https://media.tenor.com/GyDrUFcBvL4AAAAM/guacamole-dance.gif" />
+</p>
+
 Eventually, I stumbled upon Guacamole, following guidelines on the internet, I installed it natively on the Ubuntu 24.04. Notably, Ubuntu 24.04 doesn't provide Tomcat 9 because they moved forward to Tomcat 10. However, Guacamole doesn't like Tomcat 10, but it has not problems with Tomcat 9. To solve this problem, I had to download files directly from the Tomcat website. Luckily, installation was straight forward. The reason I didn't go with the version 10 was because Guacamole didn't support that version at that time. Not sure how it is like now. Furtermore, marrying Guacamole version 1.5.5 with gnome remote desktop was impossible. Apparently, there is a bug related with that version of Guacamole. Again, to solve this problem, I had to clone the official mirror repository of Guacamole on GitHub. After this, it seemed to be working, fingers crossed...
 
 To install Guacamole server-side service:
