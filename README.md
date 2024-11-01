@@ -236,7 +236,7 @@ From now on, I focused on Tomcat 9.
     sudo apt install openjdk-17-jdk
     sudo useradd -m -U -d /opt/tomcat -s /bin/false tomcat
     sudo wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz -P /tmp
-    sudo tar -xvf /tmp/apache-tomcat-10.1.24.tar.gz -C /opt/tomcat
+    sudo tar -xvf /tmp/apache-tomcat-9.0.96.tar.gz -C /opt/tomcat
     sudo chown -R tomcat:tomcat /opt/tomcat
 
 Tomcat is installed, we proceed to configure it.
