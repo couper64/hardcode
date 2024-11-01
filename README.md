@@ -332,3 +332,56 @@ Now, the service should be accessible at port `8080/guacamole`, and default logi
 * [Here I found how to build Guacamole from GitHub repository](https://discourse.gnome.org/t/gnome-remote-desktop-rdp-problem-with-apache-guacamole/20703/4)
 * [This is the mirror repository of Apache Guacamole on GitHub](https://github.com/apache/guacamole-server)
 * [The website where I download MySQL/J connector](https://dev.mysql.com/downloads/connector/j/)
+
+### Section 2.1 Virtualisation
+When working with VirtualBox, to enable bridge network, it is a simple matter of changing networking adapter in the settings of the progam to bridge adapter with the real ethernet adapter selected below. However, VirtualBox doesn't let us do hardware passthrough or, at least, I didn't find a definite answer to this on the internet. Otherwise, VirtualBox is a very useful piece of software that I use from time to time to experiment with various OS and new software.
+
+Moving to QEMU/KVM, to allow virtual machines to connect to outside world the host's network should be reconfigured. First, we create bridge interface.
+
+    nmcli con show
+    nmcli con add ifname br0 type bridge con-name br0
+    nmcli con add type bridge-slave ifname eth0 master br0
+    nmcli con mod br0 bridge.stp no
+    nmcli con down eth0
+    nmcli con up br0
+    nmcli device show
+    sudo systemctl restart NetworkManager.service
+
+Then, we setup KVM to allow guest VMs to use bridge interface. Start from creating a file in an arbitrary location on the computer and name it `host-birdge.xml`.
+
+    <network>
+        <name>host-bridge</name>
+        <forward mode="bridge"/>
+        <bridge name="br0"/>
+    </network>
+
+Then execute these commands (as a user in the libvirt group):
+
+    virsh net-define host-bridge.xml
+    virsh net-start host-bridge
+    virsh net-autostart host-bridge
+
+A mechanism to allow connections from outside.
+
+    sudo modprobe br_netfilter
+    sudo echo "br_netfilter" > /etc/modules-load.d/br_netfilter.conf
+
+Create /etc/sysctl.d/10-bridge.conf.
+
+    # Do not filter packets crossing a bridge
+    net.bridge.bridge-nf-call-ip6tables=0
+    net.bridge.bridge-nf-call-iptables=0
+    net.bridge.bridge-nf-call-arptables=0
+
+Apply and check the config.
+
+    sudo sysctl -p /etc/sysctl.d/10-bridge.conf
+    sudo sysctl -a | grep "bridge-nf-call"
+
+Configure the guest to use host-bridge. Open up the Virtual Machine Manager and then select the target guest. Go to the NIC device. The drop down for "Network Source" should now include a device called "Virtual netowrk 'host-bridge'". The "Bridge network device model" will be "virtio" if that's your KVM configuration's default. Select that "host-bridge" device.
+
+#### References:
+* [Guide to add a bridge interface to the Ubuntu desktop using *nmcli*](https://gist.github.com/plembo/f7abd2d9b6f76e7afdece02dae7e5097)
+* [Another guide to add a bridge interface that helped to understand how to set dynamic IP instead of static](https://gist.github.com/frjaraur/7bad30cedc484486efd3ba5d12362bec)
+* [Guide to setup a bridged network for KVM guests](https://gist.github.com/plembo/a7b69f92953a76ab2d06533754b5e2bb)
+* [Another useful guide, this is where I started my research from](https://www.dzombak.com/blog/2024/02/Setting-up-KVM-virtual-machines-using-a-bridged-network.html)
