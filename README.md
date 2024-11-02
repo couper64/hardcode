@@ -207,7 +207,16 @@ Anyhow, it is time to step forward, we are acquiring new equipment, and I am goi
 
 Eventually, I stumbled upon Guacamole, following guidelines on the internet, I installed it natively on the Ubuntu 24.04. Notably, Ubuntu 24.04 doesn't provide Tomcat 9 because they moved forward to Tomcat 10. However, Guacamole doesn't like Tomcat 10, but it has not problems with Tomcat 9. To solve this problem, I had to download files directly from the Tomcat website. Luckily, installation was straight forward. The reason I didn't go with the version 10 was because Guacamole didn't support that version at that time. Not sure how it is like now. Furtermore, marrying Guacamole version 1.5.5 with gnome remote desktop was impossible. Apparently, there is a bug related with that version of Guacamole. Again, to solve this problem, I had to clone the official mirror repository of Guacamole on GitHub. After this, it seemed to be working, fingers crossed...
 
-To install Guacamole server-side service:
+To install Guacamole server-side service, start by installing dependencies:
+
+    sudo apt install build-essential libcairo2-dev libjpeg-turbo8-dev \
+        libpng-dev libtool-bin libossp-uuid-dev libvncserver-dev \
+        freerdp2-dev libssh2-1-dev libtelnet-dev libwebsockets-dev \
+        libpulse-dev libvorbis-dev libwebp-dev libssl-dev \
+        libpango1.0-dev libswscale-dev libavcodec-dev libavutil-dev \
+        libavformat-dev
+
+Then, install server-side service.
 
     git clone https://github.com/apache/guacamole-server
     cd guacamole-server
