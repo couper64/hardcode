@@ -385,3 +385,6 @@ Configure the guest to use host-bridge. Open up the Virtual Machine Manager and 
 * [Another guide to add a bridge interface that helped to understand how to set dynamic IP instead of static](https://gist.github.com/frjaraur/7bad30cedc484486efd3ba5d12362bec)
 * [Guide to setup a bridged network for KVM guests](https://gist.github.com/plembo/a7b69f92953a76ab2d06533754b5e2bb)
 * [Another useful guide, this is where I started my research from](https://www.dzombak.com/blog/2024/02/Setting-up-KVM-virtual-machines-using-a-bridged-network.html)
+* [1/3 of QEMU/KVM Ubuntu 24.04 installation instructions I used](https://absprog.com/post/qemu-kvm-ubuntu-24-04)
+* [2/3 of QEMU/KVM Ubuntu 24.04 installation instructions I used](https://www.server-world.info/en/note?os=Ubuntu_24.04&p=kvm&f=1)
+* [3/3 of QEMU/KVM Ubuntu 24.04 installation instructions I used](https://phoenixnap.com/kb/ubuntu-install-kvm)
