@@ -8,6 +8,21 @@
 
     git clone --recurse-submodules git://github.com/foo/bar.git
 
+## Command to kill Ngrok process.
+
+    kill -9 "$(pgrep ngrok)"
+
+## Commands to run Ngrok in the background.
+    
+    clear ; ngrok http http://localhost:8080 > /dev/null &
+    clear ; export WEBHOOK_URL="$(curl http://localhost:4040/api/tunnels | jq ".tunnels[0].public_url")"
+    clear ; echo $WEBHOOK_URL
+
+## Commands to install and setup Ngrok. First, sign up (in) and retrieve the authorisation token.
+
+    snap install ngrok
+    ngrok config add-authtoken <token>
+
 ## Table of Content
 * [Introduction](#introduction)
 * [Section 1. Operating Systems](#section-1-operating-systems)
