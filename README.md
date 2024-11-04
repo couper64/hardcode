@@ -437,3 +437,4 @@ I decided to make it into a separate section because this task is complex enough
 
 #### References:
 * [A guide to setup GPU passthrough](https://github.com/bryansteiner/gpu-passthrough-tutorial)
+* [A guide to setup GPU passthrough](https://github.com/aaronanderson/LinuxVMWindowsSteamVR)
