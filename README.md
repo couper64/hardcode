@@ -375,7 +375,7 @@ Now, the service should be accessible at port `8080/guacamole`, and default logi
 * [This is the mirror repository of Apache Guacamole on GitHub](https://github.com/apache/guacamole-server)
 * [The website where I download MySQL/J connector](https://dev.mysql.com/downloads/connector/j/)
 
-### Section 2.1 Virtualisation
+### Section 2.2 Virtualisation
 When working with VirtualBox, to enable bridge network, it is a simple matter of changing networking adapter in the settings of the progam to bridge adapter with the real ethernet adapter selected below. However, VirtualBox doesn't let us do hardware passthrough or, at least, I didn't find a definite answer to this on the internet. Otherwise, VirtualBox is a very useful piece of software that I use from time to time to experiment with various OS and new software.
 
 Moving to QEMU/KVM, to allow virtual machines to connect to outside world the host's network should be reconfigured. First, we create bridge interface.
@@ -430,3 +430,10 @@ Configure the guest to use host-bridge. Open up the Virtual Machine Manager and 
 * [1/3 of QEMU/KVM Ubuntu 24.04 installation instructions I used](https://absprog.com/post/qemu-kvm-ubuntu-24-04)
 * [2/3 of QEMU/KVM Ubuntu 24.04 installation instructions I used](https://www.server-world.info/en/note?os=Ubuntu_24.04&p=kvm&f=1)
 * [3/3 of QEMU/KVM Ubuntu 24.04 installation instructions I used](https://phoenixnap.com/kb/ubuntu-install-kvm)
+
+### Section 2.3 GPU Passthrough
+
+I decided to make it into a separate section because this task is complex enough on its own.
+
+#### References:
+* [A guide to setup GPU passthrough](https://github.com/bryansteiner/gpu-passthrough-tutorial)
