@@ -457,3 +457,5 @@ The output should look something like this.
 #### References:
 * [A guide to setup GPU passthrough](https://github.com/bryansteiner/gpu-passthrough-tutorial)
 * [A guide to setup GPU passthrough](https://github.com/aaronanderson/LinuxVMWindowsSteamVR)
+* [A guide to setup GPU passthrough](https://github.com/cosminmocan/vfio-single-amdgpu-passthrough)
+* [How to lspci to check GPU kernel driver in use](https://askubuntu.com/questions/5417/how-to-get-the-gpu-info)
