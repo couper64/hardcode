@@ -23,6 +23,24 @@
     snap install ngrok
     ngrok config add-authtoken <token>
 
+## Another installation command, because when I installed **ngrok** through **snap**, it couldn't start a service, but when installed through **apt**, it worked.
+
+    curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | \
+      sudo gpg --dearmor -o /etc/apt/keyrings/ngrok.gpg && \
+      echo "deb [signed-by=/etc/apt/keyrings/ngrok.gpg] https://ngrok-agent.s3.amazonaws.com buster main" | \
+      sudo tee /etc/apt/sources.list.d/ngrok.list && \
+      sudo apt update && sudo apt install ngrok
+    sudo ngrok service install --config /path/to/config.yml
+    sudo ngrok service start
+
+Although, all the messages were indicating "ok", it didn't work for me. Here is the config file.
+    
+    authtoken: <your-auth-token>
+    tunnels:
+        default:
+            proto: http
+            addr: 8080
+
 ## Table of Content
 * [Introduction](#introduction)
 * [Section 1. Operating Systems](#section-1-operating-systems)
