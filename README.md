@@ -435,6 +435,25 @@ Configure the guest to use host-bridge. Open up the Virtual Machine Manager and 
 
 I decided to make it into a separate section because this task is complex enough on its own.
 
+The following command can tell what kernel driver is in use.
+
+    lspci | grep ' VGA ' | cut -d" " -f 1 | xargs -i lspci -v -s {}
+
+The output should look something like this.
+
+    bd:00.0 VGA compatible controller: NVIDIA Corporation GA102GL [RTX A6000] (rev a1) (prog-if 00 [VGA controller])
+    	Subsystem: NVIDIA Corporation GA102GL [RTX A6000]
+    	Physical Slot: 7
+    	Flags: bus master, fast devsel, latency 0, IRQ 439, NUMA node 1, IOMMU group 30
+    	Memory at e9000000 (32-bit, non-prefetchable) [size=16M]
+    	Memory at 22bfe0000000 (64-bit, prefetchable) [size=256M]
+    	Memory at 22bff0000000 (64-bit, prefetchable) [size=32M]
+    	I/O ports at d000 [size=128]
+    	Expansion ROM at ea000000 [virtual] [disabled] [size=512K]
+    	Capabilities: <access denied>
+    	Kernel driver in use: nvidia
+    	Kernel modules: nvidiafb, nouveau, nvidia_drm, nvidia
+
 #### References:
 * [A guide to setup GPU passthrough](https://github.com/bryansteiner/gpu-passthrough-tutorial)
 * [A guide to setup GPU passthrough](https://github.com/aaronanderson/LinuxVMWindowsSteamVR)
