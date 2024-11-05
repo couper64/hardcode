@@ -459,3 +459,6 @@ The output should look something like this.
 * [A guide to setup GPU passthrough](https://github.com/aaronanderson/LinuxVMWindowsSteamVR)
 * [A guide to setup GPU passthrough](https://github.com/cosminmocan/vfio-single-amdgpu-passthrough)
 * [How to lspci to check GPU kernel driver in use](https://askubuntu.com/questions/5417/how-to-get-the-gpu-info)
+* [The comment in this link was intriguing](https://askubuntu.com/questions/1523096/single-gpu-passthrough-on-24-04-nothing-happens-when-starting-vm)
+* [1/2 of the guide the comment was referring to](https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/home)
+* [2/2 of the guide the comment was referring to](https://github.com/ilayna/Single-GPU-passthrough-amd-nvidia?tab=readme-ov-file)
