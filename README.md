@@ -108,6 +108,22 @@ From Wikipedia: Ubuntu (/ʊˈbʊntuː/ (listen) uu-BUUN-too) is a Linux distribu
 
     The default installation file of Ubuntu 20.04 has been updated to 20.04.5. I decided to move to a new version and do an experiment. I will install the software and won't be updating the default packages. Luckily, the defualt kernel is __5.14.0-1051-oem__ and NVIDIA driver is __515.65.01__.
 
+1. **Ubuntu 24.04.1**
+
+    The *gdm3* display manager by default runs on Wayland. However, sometimes, e.g. *ast* driver, doesn't work with Wayland. To switch to Xorg uncomment `WaylandEnable=false` line by modifying `/etc/gdm3/custom.conf` configuration file. Save the file and reboot. This is the only working solution I have found so far.
+
+    I have tried many things, such as reinstalling by **removing** *gdm3*. I switched to *tty3*, using `Ctrl+Alt+F3` and stopped the display manager service, i.e. *gdm3*, using commands below. Stopping *gdm* and *display-manager.service* act as aliases and, in my opinion, it is better to stop the original service. I have tried both removing then rebooting, as well as, removing without rebooting. Also, I tried with and without stopping the *gdm3* service. Unfortunately, it didn't help.
+
+        sudo systemctl stop gdm3
+        sudo apt remove gdm3
+        sudo apt install gdm3.
+
+    I have tried reinstalling by **purging** *gdm3*. I did the same experiments as with **removing**. Initially, when I tried to stop the service, purge it, and install it without rebooting the display manager started to work. Happily after, I logged into my user account and all seemed to be working. However, when I have rebooted, the problem came back.
+
+        sudo systemctl stop gdm3
+        sudo apt purging gdm3
+        sudo apt install gdm3.
+
 ##### Ubuntu Standard Installation Routine
 The standard installation involves the programs which are used regardless of 
 a purpose of the installation, be it computer vision task or game development.
