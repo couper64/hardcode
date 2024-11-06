@@ -473,6 +473,43 @@ The output should look something like this.
     	Kernel driver in use: nvidia
     	Kernel modules: nvidiafb, nouveau, nvidia_drm, nvidia
 
+For a successful GPU passthrough, I installed Ubuntu 24.04.1 without NVIDIA drivers using only *nouveau*.
+
+Modify *grub*.
+
+    sudo nvim /etc/default/grub
+
+Make it look like this.
+
+    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash intel_iommu=on iommu=pt"
+
+Save the changes, and update grub to apply the changes. Following with a reboot.
+
+    sudo update-grub
+
+Blacklist the GPUs by creating a configuration file.
+
+    sudo nvim /etc/modprobe.d/gpu-passthrough-blacklist.conf
+
+Make it look like this.
+
+    blacklist nouveau
+    blacklist snd_hda_intel
+
+Bind GPUs to VFIO by creating another configuration file.
+
+    sudo nvim /etc/modprobe.d/vfio.conf
+
+Make it look like this.
+
+    options vfio-pci ids=XXXX:XXXX,YYYY:YYYY
+
+XXXX:XXXX,YYYY:YYYY are model ids found by using the `lspci -nnk | grep -e NVIDIA` command. The ids are located at the end of the line. Shortly after, save and apply the changes.
+
+    sudo update-initramfs -u
+
+
+
 #### References:
 * [A guide to setup GPU passthrough](https://github.com/bryansteiner/gpu-passthrough-tutorial)
 * [A guide to setup GPU passthrough](https://github.com/aaronanderson/LinuxVMWindowsSteamVR)
