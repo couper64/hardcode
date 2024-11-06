@@ -8,6 +8,39 @@
 
     git clone --recurse-submodules git://github.com/foo/bar.git
 
+## Command to kill Ngrok process.
+
+    kill -9 "$(pgrep ngrok)"
+
+## Commands to run Ngrok in the background.
+    
+    clear ; ngrok http http://localhost:8080 > /dev/null &
+    clear ; export WEBHOOK_URL="$(curl http://localhost:4040/api/tunnels | jq ".tunnels[0].public_url")"
+    clear ; echo $WEBHOOK_URL
+
+## Commands to install and setup Ngrok. First, sign up (in) and retrieve the authorisation token.
+
+    snap install ngrok
+    ngrok config add-authtoken <token>
+
+## Another installation command, because when I installed **ngrok** through **snap**, it couldn't start a service, but when installed through **apt**, it worked.
+
+    curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | \
+      sudo gpg --dearmor -o /etc/apt/keyrings/ngrok.gpg && \
+      echo "deb [signed-by=/etc/apt/keyrings/ngrok.gpg] https://ngrok-agent.s3.amazonaws.com buster main" | \
+      sudo tee /etc/apt/sources.list.d/ngrok.list && \
+      sudo apt update && sudo apt install ngrok
+    sudo ngrok service install --config /path/to/config.yml
+    sudo ngrok service start
+
+Although, all the messages were indicating "ok", it didn't work for me. Here is the config file.
+    
+    authtoken: <your-auth-token>
+    tunnels:
+        default:
+            proto: http
+            addr: 8080
+
 ## Table of Content
 * [Introduction](#introduction)
 * [Section 1. Operating Systems](#section-1-operating-systems)
@@ -223,7 +256,16 @@ Anyhow, it is time to step forward, we are acquiring new equipment, and I am goi
 
 Eventually, I stumbled upon Guacamole, following guidelines on the internet, I installed it natively on the Ubuntu 24.04. Notably, Ubuntu 24.04 doesn't provide Tomcat 9 because they moved forward to Tomcat 10. However, Guacamole doesn't like Tomcat 10, but it has not problems with Tomcat 9. To solve this problem, I had to download files directly from the Tomcat website. Luckily, installation was straight forward. The reason I didn't go with the version 10 was because Guacamole didn't support that version at that time. Not sure how it is like now. Furtermore, marrying Guacamole version 1.5.5 with gnome remote desktop was impossible. Apparently, there is a bug related with that version of Guacamole. Again, to solve this problem, I had to clone the official mirror repository of Guacamole on GitHub. After this, it seemed to be working, fingers crossed...
 
-To install Guacamole server-side service:
+To install Guacamole server-side service, start by installing dependencies:
+
+    sudo apt install build-essential libcairo2-dev libjpeg-turbo8-dev \
+        libpng-dev libtool-bin libossp-uuid-dev libvncserver-dev \
+        freerdp2-dev libssh2-1-dev libtelnet-dev libwebsockets-dev \
+        libpulse-dev libvorbis-dev libwebp-dev libssl-dev \
+        libpango1.0-dev libswscale-dev libavcodec-dev libavutil-dev \
+        libavformat-dev
+
+Then, install server-side service.
 
     git clone https://github.com/apache/guacamole-server
     cd guacamole-server
@@ -252,7 +294,7 @@ From now on, I focused on Tomcat 9.
     sudo apt install openjdk-17-jdk
     sudo useradd -m -U -d /opt/tomcat -s /bin/false tomcat
     sudo wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz -P /tmp
-    sudo tar -xvf /tmp/apache-tomcat-10.1.24.tar.gz -C /opt/tomcat
+    sudo tar -xvf /tmp/apache-tomcat-9.0.96.tar.gz -C /opt/tomcat
     sudo chown -R tomcat:tomcat /opt/tomcat
 
 Tomcat is installed, we proceed to configure it.
@@ -348,3 +390,91 @@ Now, the service should be accessible at port `8080/guacamole`, and default logi
 * [Here I found how to build Guacamole from GitHub repository](https://discourse.gnome.org/t/gnome-remote-desktop-rdp-problem-with-apache-guacamole/20703/4)
 * [This is the mirror repository of Apache Guacamole on GitHub](https://github.com/apache/guacamole-server)
 * [The website where I download MySQL/J connector](https://dev.mysql.com/downloads/connector/j/)
+
+### Section 2.2 Virtualisation
+When working with VirtualBox, to enable bridge network, it is a simple matter of changing networking adapter in the settings of the progam to bridge adapter with the real ethernet adapter selected below. However, VirtualBox doesn't let us do hardware passthrough or, at least, I didn't find a definite answer to this on the internet. Otherwise, VirtualBox is a very useful piece of software that I use from time to time to experiment with various OS and new software.
+
+Moving to QEMU/KVM, to allow virtual machines to connect to outside world the host's network should be reconfigured. First, we create bridge interface.
+
+    nmcli con show
+    nmcli con add ifname br0 type bridge con-name br0
+    nmcli con add type bridge-slave ifname eth0 master br0
+    nmcli con mod br0 bridge.stp no
+    nmcli con down eth0
+    nmcli con up br0
+    nmcli device show
+    sudo systemctl restart NetworkManager.service
+
+Then, we setup KVM to allow guest VMs to use bridge interface. Start from creating a file in an arbitrary location on the computer and name it `host-birdge.xml`.
+
+    <network>
+        <name>host-bridge</name>
+        <forward mode="bridge"/>
+        <bridge name="br0"/>
+    </network>
+
+Then execute these commands (as a user in the libvirt group):
+
+    virsh net-define host-bridge.xml
+    virsh net-start host-bridge
+    virsh net-autostart host-bridge
+
+A mechanism to allow connections from outside.
+
+    sudo modprobe br_netfilter
+    sudo echo "br_netfilter" > /etc/modules-load.d/br_netfilter.conf
+
+Create /etc/sysctl.d/10-bridge.conf.
+
+    # Do not filter packets crossing a bridge
+    net.bridge.bridge-nf-call-ip6tables=0
+    net.bridge.bridge-nf-call-iptables=0
+    net.bridge.bridge-nf-call-arptables=0
+
+Apply and check the config.
+
+    sudo sysctl -p /etc/sysctl.d/10-bridge.conf
+    sudo sysctl -a | grep "bridge-nf-call"
+
+Configure the guest to use host-bridge. Open up the Virtual Machine Manager and then select the target guest. Go to the NIC device. The drop down for "Network Source" should now include a device called "Virtual netowrk 'host-bridge'". The "Bridge network device model" will be "virtio" if that's your KVM configuration's default. Select that "host-bridge" device.
+
+#### References:
+* [Guide to add a bridge interface to the Ubuntu desktop using *nmcli*](https://gist.github.com/plembo/f7abd2d9b6f76e7afdece02dae7e5097)
+* [Another guide to add a bridge interface that helped to understand how to set dynamic IP instead of static](https://gist.github.com/frjaraur/7bad30cedc484486efd3ba5d12362bec)
+* [Guide to setup a bridged network for KVM guests](https://gist.github.com/plembo/a7b69f92953a76ab2d06533754b5e2bb)
+* [Another useful guide, this is where I started my research from](https://www.dzombak.com/blog/2024/02/Setting-up-KVM-virtual-machines-using-a-bridged-network.html)
+* [1/3 of QEMU/KVM Ubuntu 24.04 installation instructions I used](https://absprog.com/post/qemu-kvm-ubuntu-24-04)
+* [2/3 of QEMU/KVM Ubuntu 24.04 installation instructions I used](https://www.server-world.info/en/note?os=Ubuntu_24.04&p=kvm&f=1)
+* [3/3 of QEMU/KVM Ubuntu 24.04 installation instructions I used](https://phoenixnap.com/kb/ubuntu-install-kvm)
+
+### Section 2.3 GPU Passthrough
+
+I decided to make it into a separate section because this task is complex enough on its own.
+
+The following command can tell what kernel driver is in use.
+
+    lspci | grep ' VGA ' | cut -d" " -f 1 | xargs -i lspci -v -s {}
+
+The output should look something like this.
+
+    bd:00.0 VGA compatible controller: NVIDIA Corporation GA102GL [RTX A6000] (rev a1) (prog-if 00 [VGA controller])
+    	Subsystem: NVIDIA Corporation GA102GL [RTX A6000]
+    	Physical Slot: 7
+    	Flags: bus master, fast devsel, latency 0, IRQ 439, NUMA node 1, IOMMU group 30
+    	Memory at e9000000 (32-bit, non-prefetchable) [size=16M]
+    	Memory at 22bfe0000000 (64-bit, prefetchable) [size=256M]
+    	Memory at 22bff0000000 (64-bit, prefetchable) [size=32M]
+    	I/O ports at d000 [size=128]
+    	Expansion ROM at ea000000 [virtual] [disabled] [size=512K]
+    	Capabilities: <access denied>
+    	Kernel driver in use: nvidia
+    	Kernel modules: nvidiafb, nouveau, nvidia_drm, nvidia
+
+#### References:
+* [A guide to setup GPU passthrough](https://github.com/bryansteiner/gpu-passthrough-tutorial)
+* [A guide to setup GPU passthrough](https://github.com/aaronanderson/LinuxVMWindowsSteamVR)
+* [A guide to setup GPU passthrough](https://github.com/cosminmocan/vfio-single-amdgpu-passthrough)
+* [How to lspci to check GPU kernel driver in use](https://askubuntu.com/questions/5417/how-to-get-the-gpu-info)
+* [The comment in this link was intriguing](https://askubuntu.com/questions/1523096/single-gpu-passthrough-on-24-04-nothing-happens-when-starting-vm)
+* [1/2 of the guide the comment was referring to](https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/home)
+* [2/2 of the guide the comment was referring to](https://github.com/ilayna/Single-GPU-passthrough-amd-nvidia?tab=readme-ov-file)
