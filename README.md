@@ -48,6 +48,9 @@ Although, all the messages were indicating "ok", it didn't work for me. Here is 
 * [Section 1.2. Linux Operating Systems](#section-12-linux-operating-systems)
 * [Section 1.3. Apple Operating Systems](#section-13-apple-operating-systems)
 * [Section 2. Software](#section-2-software)
+* [Section 2.1 Remote Desktop](#section-21-remote-desktop)
+* [Section 2.2 Virtualisation](#section-22-virtualisation)
+* [Section 2.3 GPU Passthrough](#section-23-gpu-passthrough)
 
 ## Introduction
 
