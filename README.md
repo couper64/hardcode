@@ -397,7 +397,23 @@ Now, the service should be accessible at port `8080/guacamole`, and default logi
 ### Section 2.2 Virtualisation
 When working with VirtualBox, to enable bridge network, it is a simple matter of changing networking adapter in the settings of the progam to bridge adapter with the real ethernet adapter selected below. However, VirtualBox doesn't let us do hardware passthrough or, at least, I didn't find a definite answer to this on the internet. Otherwise, VirtualBox is a very useful piece of software that I use from time to time to experiment with various OS and new software.
 
-Moving to QEMU/KVM, to allow virtual machines to connect to outside world the host's network should be reconfigured. First, we create bridge interface.
+Moving to QEMU/KVM, to allow virtual machines to connect to outside world the host's network should be reconfigured. To install QEMU/KVM with Virtual Manager to the following:
+
+    sudo apt install qemu-kvm libvirt-daemon libvirt-daemon-system bridge-utils virt-manager
+
+Usually, on Ubuntu 24.04.1, user is already part of `libvirt`, so we just need to add the user to the `kvm` group.
+
+    sudo adduser $USER kvm
+
+Once the user is added to the groups, I would suggest rebooting. After reboot, we can check if the installation is correct by checking if there are any virtual machines on the system.
+
+    sudo virsh list --all
+
+Or, we can check status of the `libvirt` daemon.
+
+    sudo systemctl status libvirtd
+
+Then, we can create bridge interface. Although, the default *NAT* allows VMs to communicate with the host and each other. And, through port forwarding on the host, we can expose the VMs to the outside world.
 
     nmcli con show
     nmcli con add ifname br0 type bridge con-name br0
@@ -407,6 +423,39 @@ Moving to QEMU/KVM, to allow virtual machines to connect to outside world the ho
     nmcli con up br0
     nmcli device show
     sudo systemctl restart NetworkManager.service
+
+Although, creating bridges seems to be the most logical approach, sometimes, we can't use them. Therefore, port forwarding seems to be a viable alternative. Here is how to forward ports from host physical interface to virtual interface where the guest VMs reside.
+
+    iptables -t nat -I PREROUTING -p tcp -d HOST_IP --dport HOST_PORT -j DNAT --to-destination GUEST_IP:GUEST_PORT
+    iptables -I FORWARD -m state -d GUEST_IP/24 --state NEW,RELATED,ESTABLISHED -j ACCEPT
+
+For now, I am using `iptables-persistent` to save/reload port forwarding rules between reboots.
+
+    sudo apt install iptables-persistent
+
+The location is saves the rules in is `/etc/iptables/rules.v4` and `/etc/iptables/rules.v6`. To save the rules and load them, I use the following commands. I had to wrap it around as a command for a bash because I need elevated privilages on both piping as well as saving commands.
+
+    sudo bash -c "iptables-save > /etc/iptables/rules.v4"
+
+To setup static IP inside guest VM, we need to modify the *netplan* configuration file for the *NetworkManager* service.
+
+    network:
+        version: 2
+        renderer: NetworkManager
+        ethernets:
+            eth0:
+                dhcp4: no
+                addresses:
+                    - STATIC_IP/24
+                routes:
+                    - to: default
+                     via: 192.168.1.1
+                nameservers:
+                    addresses: [192.168.1.1]
+
+Save the aforementioned in the `/etc/netplan/01-network-manager-all.yaml` file. And, apply the plan.
+
+    sudo netplan try
 
 Then, we setup KVM to allow guest VMs to use bridge interface. Start from creating a file in an arbitrary location on the computer and name it `host-birdge.xml`.
 
@@ -449,6 +498,11 @@ Configure the guest to use host-bridge. Open up the Virtual Machine Manager and 
 * [1/3 of QEMU/KVM Ubuntu 24.04 installation instructions I used](https://absprog.com/post/qemu-kvm-ubuntu-24-04)
 * [2/3 of QEMU/KVM Ubuntu 24.04 installation instructions I used](https://www.server-world.info/en/note?os=Ubuntu_24.04&p=kvm&f=1)
 * [3/3 of QEMU/KVM Ubuntu 24.04 installation instructions I used](https://phoenixnap.com/kb/ubuntu-install-kvm)
+* [1/3 of port forwarding instructions I used](https://askubuntu.com/questions/720207/port-forwarding-between-bridged-interfaces)
+* [2/3 of port forwarding instructions I used](https://ubuntuforums.org/showthread.php?t=2261173&p=13210545#post13210545)
+* [3/3 of port forwarding instructions I used](https://serverfault.com/questions/913246/forward-traffic-from-port-22-to-virtual-computer-on-ubuntu)
+* [1/2 of setting static IP using netplan and NetworkManager](https://www.freecodecamp.org/news/setting-a-static-ip-in-ubuntu-linux-ip-address-tutorial/)
+* [2/2 of setting static IP using netplan and NetworkManager](https://linuxconfig.org/setting-a-static-ip-address-in-ubuntu-24-04-via-the-command-line)
 
 ### Section 2.3 GPU Passthrough
 
@@ -461,17 +515,17 @@ The following command can tell what kernel driver is in use.
 The output should look something like this.
 
     bd:00.0 VGA compatible controller: NVIDIA Corporation GA102GL [RTX A6000] (rev a1) (prog-if 00 [VGA controller])
-    	Subsystem: NVIDIA Corporation GA102GL [RTX A6000]
-    	Physical Slot: 7
-    	Flags: bus master, fast devsel, latency 0, IRQ 439, NUMA node 1, IOMMU group 30
-    	Memory at e9000000 (32-bit, non-prefetchable) [size=16M]
-    	Memory at 22bfe0000000 (64-bit, prefetchable) [size=256M]
-    	Memory at 22bff0000000 (64-bit, prefetchable) [size=32M]
-    	I/O ports at d000 [size=128]
-    	Expansion ROM at ea000000 [virtual] [disabled] [size=512K]
-    	Capabilities: <access denied>
-    	Kernel driver in use: nvidia
-    	Kernel modules: nvidiafb, nouveau, nvidia_drm, nvidia
+        Subsystem: NVIDIA Corporation GA102GL [RTX A6000]
+        Physical Slot: 7
+        Flags: bus master, fast devsel, latency 0, IRQ 439, NUMA node 1, IOMMU group 30
+        Memory at e9000000 (32-bit, non-prefetchable) [size=16M]
+        Memory at 22bfe0000000 (64-bit, prefetchable) [size=256M]
+        Memory at 22bff0000000 (64-bit, prefetchable) [size=32M]
+        I/O ports at d000 [size=128]
+        Expansion ROM at ea000000 [virtual] [disabled] [size=512K]
+        Capabilities: <access denied>
+        Kernel driver in use: nvidia
+        Kernel modules: nvidiafb, nouveau, nvidia_drm, nvidia
 
 For a successful GPU passthrough, I installed Ubuntu 24.04.1 without NVIDIA drivers using only *nouveau*.
 
