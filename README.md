@@ -443,18 +443,19 @@ To setup static IP inside guest VM, we need to modify the *netplan* configuratio
         version: 2
         renderer: NetworkManager
         ethernets:
-            eth0:
-                dhcp4: no
+            INTERFACE_NAME:
+                dhcp4: false
                 addresses:
                     - STATIC_IP/24
                 routes:
                     - to: default
-                     via: 192.168.1.1
+                     via: HOST_IP
                 nameservers:
-                    addresses: [192.168.1.1]
+                    addresses: [HOST_IP]
 
-Save the aforementioned in the `/etc/netplan/01-network-manager-all.yaml` file. And, apply the plan.
+For example, `INTERFACE_NAME=eth0`, `STATIC_IP=192.168.1.100`, `HOST_IP=192.168.1.1`. Save the aforementioned in the `/etc/netplan/01-network-manager-all.yaml` file. And, apply the plan.
 
+    sudo chmod 700 /etc/netplan/01-network-manager-all.yaml
     sudo netplan try
 
 Then, we setup KVM to allow guest VMs to use bridge interface. Start from creating a file in an arbitrary location on the computer and name it `host-birdge.xml`.
@@ -489,6 +490,24 @@ Apply and check the config.
     sudo sysctl -a | grep "bridge-nf-call"
 
 Configure the guest to use host-bridge. Open up the Virtual Machine Manager and then select the target guest. Go to the NIC device. The drop down for "Network Source" should now include a device called "Virtual netowrk 'host-bridge'". The "Bridge network device model" will be "virtio" if that's your KVM configuration's default. Select that "host-bridge" device.
+
+#### Useful commands:
+
+A command to set automatic start of VMs when host boots up.
+
+    virsh autostart <vm-name>
+
+A command to undo automatic start of VMs when host boots up.
+
+    virsh autostart --disable <vm-name>
+
+A command to set automatic start of the Docker containers when host boots up.
+
+    docker update --restart unless-stopped <container-name>
+
+A command to undo automatic start of the Docker containers when host boots up.
+
+    docker update --restart no <container_name_or_id>
 
 #### References:
 * [Guide to add a bridge interface to the Ubuntu desktop using *nmcli*](https://gist.github.com/plembo/f7abd2d9b6f76e7afdece02dae7e5097)
