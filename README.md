@@ -51,6 +51,7 @@ Although, all the messages were indicating "ok", it didn't work for me. Here is 
 * [Section 2.1 Remote Desktop](#section-21-remote-desktop)
 * [Section 2.2 Virtualisation](#section-22-virtualisation)
 * [Section 2.3 GPU Passthrough](#section-23-gpu-passthrough)
+* [Appdenix A](#appendix-a)
 
 ## Introduction
 
@@ -591,3 +592,55 @@ XXXX:XXXX,YYYY:YYYY are model ids found by using the `lspci -nnk | grep -e NVIDI
 * [The comment in this link was intriguing](https://askubuntu.com/questions/1523096/single-gpu-passthrough-on-24-04-nothing-happens-when-starting-vm)
 * [1/2 of the guide the comment was referring to](https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/home)
 * [2/2 of the guide the comment was referring to](https://github.com/ilayna/Single-GPU-passthrough-amd-nvidia?tab=readme-ov-file)
+
+
+### Section 2.4 Software RAID
+
+From the internet search, the suggested tool is `mdadm`.
+
+To install `mdadm`, run the following command in terminal.
+
+    sudo apt install mdadm
+
+The following command will create the RAID 5 array.
+
+    sudo mdadm --create --verbose /dev/md0 --level=5 --raid-devices=3 /dev/sda /dev/sdb /dev/sdc
+
+Format the RAID array and make it persistent.
+
+    clear; sudo mkdir -p /mnt/md0
+    sudo mount /dev/md0 /mnt/md0/
+    df -h -x devtmpfs -x tmpfs
+
+Then, inside the host machine, we can setup something like this.
+
+    sudo mdadm --detail --scan | sudo tee -a /etc/mdadm/mdadm.conf
+    sudo update-initramfs -u
+    sudo echo '/dev/md0 /box ext4 defaults,nofail,discard 0 0' | sudo tee -a /etc/fstab
+
+#### References:
+* [The 1/2 guide](https://medium.com/@jing.kang99/create-raid-5-arrays-with-mdadm-on-ubuntu-22-04-fbb08898e01c)
+* [The 2/2 guide](https://ioflood.com/blog/install-mdadm-command-linux/)
+
+### Section 2.5 BIOS RAID
+
+Set the SATA from `AHCI` to `RAID`.
+
+Created volume under `Advanced/Intel(R) VROC sSATA Controller/Create RAID Volume`.
+
+Unfortunately, my configuration doesn't support `Intel(R) VROC sSATA Controller`. I will have to use software RAID.
+
+    CPU: Intel(R) Xeon(R) Silver 4410Y
+    Generation: 4th "Sapphire Rapids"
+    Chipset: Intel® C621A Chipset
+
+#### References:
+* [Intel® Virtual RAID on CPU (Intel® VROC) Operating Systems Support List](https://www.intel.com/content/www/us/en/support/articles/000099710/memory-and-storage/datacenter-storage-solutions.html)
+* [Release Notes Intel® Virtual RAID on CPU (Intel® VROC) for Linux*](https://cdrdv2-public.intel.com/841093/intel-vroc-linux-releasenotes.pdf)
+* [Intel® Xeon® Silver 4410Y Processor](https://www.intel.com/content/www/us/en/products/sku/232376/intel-xeon-silver-4410y-processor-30m-cache-2-00-ghz/specifications.html)
+* [Intel® Virtual RAID on CPU (Intel® VROC) Linux* Driver for Intel® Server Boards and Systems Based on Intel® 621A Chipset](https://www.intel.com/content/www/us/en/download/733029/intel-virtual-raid-on-cpu-intel-vroc-linux-driver-for-intel-server-boards-and-systems-based-on-intel-621a-chipset.html)
+* [GPU SuperServer SYS-740GP-TNRT](https://www.supermicro.com/en/products/system/gpu/4u/sys-740gp-tnrt)
+
+# Appendix A
+
+To hide the unmounted volumes, the setting is located at `Settings/Ubuntu Desktop/Dock/Configure Dock Behavior/Include Unmounted Volumes`.
