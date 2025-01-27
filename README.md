@@ -27,6 +27,13 @@ This is a repository that contains useful code snippets, including personal and 
 
 Computer science is the study of computers and computational systems, encompassing both theoretical foundations and practical applications. It involves the design and analysis of algorithms, data structures, software, and hardware to solve problems efficiently. Key areas include artificial intelligence, programming, data science, cybersecurity, and human-computer interaction. Computer science also explores how information is processed, stored, and communicated, along with the creation of innovative technologies that impact various fields such as medicine, engineering, and entertainment.
 
+# Computer data storage
+Computer data storage is a technology consisting of computer components and recording media that are used to retain digital data. It is a core function and fundamental component of computers.
+
+The central processing unit (CPU) of a computer is what manipulates data by performing computations. In practice, almost all computers use a storage hierarchy  which puts fast but expensive and small storage options close to the CPU and slower but less expensive and larger options further away. Generally, the fast technologies are referred to as "memory", while slower persistent technologies are referred to as "storage".
+
+Even the first computer designs, Charles Babbage's Analytical Engine and Percy Ludgate's Analytical Machine, clearly distinguished between processing and memory (Babbage stored numbers as rotations of gears, while Ludgate stored numbers as displacements of rods in shuttles). This distinction was extended in the Von Neumann architecture, where the CPU consists of two main parts: The control unit and the arithmetic logic unit (ALU). The former controls the flow of data between the CPU and memory, while the latter performs arithmetic and logical operations on data.
+
 ### Games Development
 
 <p align="center">
