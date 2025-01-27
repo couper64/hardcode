@@ -1,46 +1,4 @@
 # hardcode
-
-## Command to recursively delete files.
-
-    find . -type f -name '*.o' -exec rm {} +
-    
-## Command to recusrively clone a repository.
-
-    git clone --recurse-submodules git://github.com/foo/bar.git
-
-## Command to kill Ngrok process.
-
-    kill -9 "$(pgrep ngrok)"
-
-## Commands to run Ngrok in the background.
-    
-    clear ; ngrok http http://localhost:8080 > /dev/null &
-    clear ; export WEBHOOK_URL="$(curl http://localhost:4040/api/tunnels | jq ".tunnels[0].public_url")"
-    clear ; echo $WEBHOOK_URL
-
-## Commands to install and setup Ngrok. First, sign up (in) and retrieve the authorisation token.
-
-    snap install ngrok
-    ngrok config add-authtoken <token>
-
-## Another installation command, because when I installed **ngrok** through **snap**, it couldn't start a service, but when installed through **apt**, it worked.
-
-    curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | \
-      sudo gpg --dearmor -o /etc/apt/keyrings/ngrok.gpg && \
-      echo "deb [signed-by=/etc/apt/keyrings/ngrok.gpg] https://ngrok-agent.s3.amazonaws.com buster main" | \
-      sudo tee /etc/apt/sources.list.d/ngrok.list && \
-      sudo apt update && sudo apt install ngrok
-    sudo ngrok service install --config /path/to/config.yml
-    sudo ngrok service start
-
-Although, all the messages were indicating "ok", it didn't work for me. Here is the config file.
-    
-    authtoken: <your-auth-token>
-    tunnels:
-        default:
-            proto: http
-            addr: 8080
-
 ## Table of Content
 * [Introduction](#introduction)
 * [Section 1. Operating Systems](#section-1-operating-systems)
@@ -641,6 +599,74 @@ Unfortunately, my configuration doesn't support `Intel(R) VROC sSATA Controller`
 * [Intel® Virtual RAID on CPU (Intel® VROC) Linux* Driver for Intel® Server Boards and Systems Based on Intel® 621A Chipset](https://www.intel.com/content/www/us/en/download/733029/intel-virtual-raid-on-cpu-intel-vroc-linux-driver-for-intel-server-boards-and-systems-based-on-intel-621a-chipset.html)
 * [GPU SuperServer SYS-740GP-TNRT](https://www.supermicro.com/en/products/system/gpu/4u/sys-740gp-tnrt)
 
+### Section 2.6 VM for MinIO
+
+To setup a file storage server for research work, we will setup MinIO on Ubuntu 24.04. For this, we will run a VM using KVM/QEMU. We already set up RAID 5 on the host machine and, simply, created virtual disk using entire available space.
+
+Waiting for Ubuntu to install inside VM...
+
+Used `parted` command line tool to partition and format the hard drive.
+
+Modified `fstab` to add automount option. And, used UUID instead of a path because it is more reliable.
+
+Below are commands to run a Docker container of MinIO.
+
+    mkdir -p ${HOME}/minio/data
+
+    docker run \
+    -p 9000:9000 \
+    -p 9001:9001 \
+    --user $(id -u):$(id -g) \
+    --name minio1 \
+    -e "MINIO_ROOT_USER=ROOTUSER" \
+    -e "MINIO_ROOT_PASSWORD=CHANGEME123" \
+    -v ${HOME}/minio/data:/data \
+    quay.io/minio/minio server /data --console-address ":9001"
+
+#### References:
+* [The tutorial I used to setup virtual disk in guest OS.](https://help.ubuntu.com/community/InstallingANewHardDrive)
+
 # Appendix A
 
 To hide the unmounted volumes, the setting is located at `Settings/Ubuntu Desktop/Dock/Configure Dock Behavior/Include Unmounted Volumes`.
+
+## Command to recursively delete files.
+
+    find . -type f -name '*.o' -exec rm {} +
+    
+## Command to recusrively clone a repository.
+
+    git clone --recurse-submodules git://github.com/foo/bar.git
+
+## Command to kill Ngrok process.
+
+    kill -9 "$(pgrep ngrok)"
+
+## Commands to run Ngrok in the background.
+    
+    clear ; ngrok http http://localhost:8080 > /dev/null &
+    clear ; export WEBHOOK_URL="$(curl http://localhost:4040/api/tunnels | jq ".tunnels[0].public_url")"
+    clear ; echo $WEBHOOK_URL
+
+## Commands to install and setup Ngrok. First, sign up (in) and retrieve the authorisation token.
+
+    snap install ngrok
+    ngrok config add-authtoken <token>
+
+## Another installation command, because when I installed **ngrok** through **snap**, it couldn't start a service, but when installed through **apt**, it worked.
+
+    curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | \
+      sudo gpg --dearmor -o /etc/apt/keyrings/ngrok.gpg && \
+      echo "deb [signed-by=/etc/apt/keyrings/ngrok.gpg] https://ngrok-agent.s3.amazonaws.com buster main" | \
+      sudo tee /etc/apt/sources.list.d/ngrok.list && \
+      sudo apt update && sudo apt install ngrok
+    sudo ngrok service install --config /path/to/config.yml
+    sudo ngrok service start
+
+Although, all the messages were indicating "ok", it didn't work for me. Here is the config file.
+    
+    authtoken: <your-auth-token>
+    tunnels:
+        default:
+            proto: http
+            addr: 8080
