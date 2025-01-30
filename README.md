@@ -557,7 +557,7 @@ Installing Ubuntu 24.04.1 from a USB flash drive. A standard procedure, however,
 
 The system has failed to boot on the first try. Rebooted, but the screen was black. Switched to tty3 and enabled Xorg suppport in the `gdm3` configuration file. Rebooted and logged in. The welcome page has been through, and connection to the internet was done via Wi-Fi.
 
-Given the access to the WWW, the system was updated and upgraded.
+Given the access to the WWW, the system was updated and upgraded. Notebly, the connection was very slow, i.e. it took around 30 minutes to complete the task. It prompted me to restart, we went with "Restart later" and then manually restarted. Enabled RDP and SSH.
 
     gpu0/gpuall SSH will be available at 192.168.122.100:221.
                 RDP will be available at 192.168.122.100:33891.
