@@ -475,6 +475,10 @@ A command to undo automatic start of the Docker containers when host boots up.
 
     docker update --restart no <container_name_or_id>
 
+#### Alternative to `iptables` could be `nginx`
+
+It is possible to configure `nginx` as a reverse proxy server on a host machine. That way, all traffic could be forwarded to an appropriate guest machine. Furthermore, using OpenResty with Lua, it is possible to configure it to pull forwarding rules from a database like MySQL, PostgreSQL, etc. Building on top, a FastAPI server would update the rules via a simple REST API endpoint. At the end, a user-oriented web application could be developed using Rest.js, Vue.js, or AngularJS. That would constitute a fully automated user-friendly system for host-guest VM management.
+
 #### References:
 * [Guide to add a bridge interface to the Ubuntu desktop using *nmcli*](https://gist.github.com/plembo/f7abd2d9b6f76e7afdece02dae7e5097)
 * [Another guide to add a bridge interface that helped to understand how to set dynamic IP instead of static](https://gist.github.com/frjaraur/7bad30cedc484486efd3ba5d12362bec)
@@ -547,7 +551,30 @@ XXXX:XXXX,YYYY:YYYY are model ids found by using the `lspci -nnk | grep -e NVIDI
 
     sudo update-initramfs -u
 
+#### Example
 
+Installing Ubuntu 24.04.1 from a USB flash drive. A standard procedure, however, on the step where it asks to isntall third-party drivers, we leave the checkbox empty. The "Download and install support for additional media formats" was greyed out because the machine didn't have access to the internet. The goal is to ensure that the GPUs wouldn't be used by the host system but rather on-demand by guest VMs.
+
+The system has failed to boot on the first try. Rebooted, but the screen was black. Switched to tty3 and enabled Xorg suppport in the `gdm3` configuration file. Rebooted and logged in. The welcome page has been through, and connection to the internet was done via Wi-Fi.
+
+Given the access to the WWW, the system was updated and upgraded.
+
+    gpu0/gpuall SSH will be available at 192.168.122.100:221.
+                RDP will be available at 192.168.122.100:33891.
+
+    gpu1/gpuduo1 SSH will be available at 192.168.122.101:221.
+                 RDP will be available at 192.168.122.101:33891.
+
+    gpu2/gputrio SSH will be available at 192.168.122.102:221.
+                 RDP will be available at 192.168.122.102:33891.
+
+    gpu3/gpuduo2 SSH will be available at 192.168.122.103:221.
+                 RDP will be available at 192.168.122.103:33891.
+
+    fileserver SSH will be available at 192.168.122.104:221.
+               RDP will be available at 192.168.122.104:33891.
+               MinIO will be available at 192.168.122.104:9000.
+               MinIO Dashboard will be available at 192.168.122.104:9001.
 
 #### References:
 * [A guide to setup GPU passthrough](https://github.com/bryansteiner/gpu-passthrough-tutorial)
