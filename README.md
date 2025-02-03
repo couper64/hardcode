@@ -559,7 +559,7 @@ The system has failed to boot on the first try. Rebooted, but the screen was bla
 
 Given the access to the WWW, the system was updated and upgraded. Notebly, the connection was very slow, i.e. it took around 30 minutes to complete the task. It prompted me to restart, we went with "Restart later" and then manually restarted. Enabled RDP and SSH.
 
-Followed instructions to perform [initial configuration](#section-12-linux-operating-systems). Skipped `ffmpeg`, `fonts-powerline`, `gstreamer`, and `wget`. Proceeded with [the Virtualisation instructions](#section-22-virtualisation).
+Followed instructions to perform [initial configuration](#section-12-linux-operating-systems). Skipped `build-essential`, `ubuntu-restricted-extras`, `ffmpeg`, `fonts-powerline`, `gstreamer`, and `wget`. Proceeded with [the Virtualisation instructions](#section-22-virtualisation). It is very important to skip the `sudo apt upgrade` because it changes some of the packages that make *gdm3* fail to start when blacklisting *nouveau*! That was a big issue and it took me two days to narrow it down to this point. As it wasn't neccessary to upgrade, I left it at this stage.
 
     gpu0/gpuall SSH will be available at 192.168.122.100:221.
                 RDP will be available at 192.168.122.100:33891.
