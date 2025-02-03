@@ -68,6 +68,9 @@ Microsoft Windows is a product line of proprietary graphical operating systems d
 
 ---
 
+1. **Windows 11**
+    After installation, the B650I AX would prompt with a GIGABYTE Control Center. My advice is to avoid it. The software is heavily under developed. Firstly, I started installing the driver for the chipset, *mb_driver_597_chipset_7.01.08.129*. Then, LAN driver, *mb_driver_654_w11_11.21.0903.2024*. Then, Audio driver, *mb_driver_612_realtekdch_6.0.9733.1*. Then, Video driver for APU, *mb_driver_2689_apu5_24.30.18.241224*. Then, Bluetooth driver, *mb_driver_675_realtek8852_1.1068.2401.1903*. Interestingly, it prompted me whether I should re-install it using compatibility settings which I actually did but only once.
+
 1. **Windows 10**
 
     Windows 10 is a major release of Microsoft's Windows NT operating system. It is the direct successor to Windows 8.1, which was released nearly two years earlier. It was released to manufacturing on July 15, 2015, and later to retail on July 29, 2015. Windows 10 was made available for download via MSDN and TechNet, as a free upgrade for retail copies of Windows 8 and Windows 8.1 users via the Microsoft Store, and to Windows 7 users via Windows Update. Windows 10 receives new builds on an ongoing basis, which are available at no additional cost to users, in addition to additional test builds of Windows 10, which are available to Windows Insiders. Devices in enterprise environments can receive these updates at a slower pace, or use long-term support milestones that only receive critical updates, such as security patches, over their ten-year lifespan of extended support. In June 2021, Microsoft announced that support for Windows 10 editions which are not in the Long-Term Servicing Channel (LTSC) will end on October 14, 2025.
