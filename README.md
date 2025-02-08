@@ -1,14 +1,14 @@
 # hardcode
 ## Table of Content
 * [Introduction](#introduction)
-* [Section 1. Operating Systems](#section-1-operating-systems)
-* [Section 1.1. Microsoft Operating Systems](#section-11-microsoft-operating-systems)
-* [Section 1.2. Linux Operating Systems](#section-12-linux-operating-systems)
-* [Section 1.3. Apple Operating Systems](#section-13-apple-operating-systems)
-* [Section 2. Software](#section-2-software)
-* [Section 2.1 Remote Desktop](#section-21-remote-desktop)
-* [Section 2.2 Virtualisation](#section-22-virtualisation)
-* [Section 2.3 GPU Passthrough](#section-23-gpu-passthrough)
+* [Operating Systems](#section-1-operating-systems)
+* [Microsoft Operating Systems](#section-11-microsoft-operating-systems)
+* [Linux Operating Systems](#section-12-linux-operating-systems)
+* [Apple Operating Systems](#section-13-apple-operating-systems)
+* [Software](#section-2-software)
+* [Remote Desktop](#section-21-remote-desktop)
+* [Virtualisation](#section-22-virtualisation)
+* [GPU Passthrough](#section-23-gpu-passthrough)
 * [Appdenix A](#appendix-a)
 
 ## Introduction
